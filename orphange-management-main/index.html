@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hands2Hands - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+            body {
+    background: linear-gradient(to bottom, #2A2438, #352F44, #5C5470, #DBD8E3);
+}
+
+        
+
+        h1, p, .description-box, .btn-lg {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        h1, p {
+            color: #ffffff;
+            width: 500px;
+        }
+
+        .description-box {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        .btn-lg {
+            background-color: #6A0572;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 24px;
+            font-size: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lg:hover {
+            background-color: #52034F;
+        }
+
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dots {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dropdown-content div {
+            padding: 12px 16px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content div:hover {
+            background-color: #52034F;
+        }
+
+        .dropdown.show .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="dropdown">
+            <div class="dots" onclick="toggleDropdown()">&#8226;&#8226;&#8226;</div>
+            <div class="dropdown-content" id="dropdownMenu">
+                <div onclick="handleOption('login.html')">Login</div>
+                <div onclick="handleOption('dashboard.html')">Dashboard</div>
+                <div onclick="handleOption('children.html')">Children</div>
+                <div onclick="handleOption('donat.html')">Donations</div>
+                <div onclick="handleOption('adopt.html')">Adoption</div>
+                <div onclick="handleOption('events.html')">Events</div>
+                <div onclick="handleOption('report.html')">Report</div>
+                <div onclick="handleOption('volunteer.html')">Volunteer</div>
+                <div onclick="handleOption('contact.html')">Contact</div>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container text-center">
+    <center><h1 class="mt-5 animate" style="background-color: #333;">Welcome to Hands2Hands</h1>
+    <p class="lead animate" style="color: white;"  >We rise by lifting others</p>
+
+    <div class="description-box mt-4 p-4 animate">
+        <p>
+            Hands2Hands is a compassionate platform dedicated to transforming the lives of orphaned children. 
+            Our mission is to bridge the gap between those in need and those willing to help, making adoption, 
+            donations, and volunteer support seamless and impactful.
+        </p>
+        <ul class="list-unstyled">
+            <p>What we offer?</p>
+            <li style="color:#000000;"><strong>Adoption Services</strong> – Connecting children with loving families.</li>
+            <li style="color:#000000"><strong>Donation Platform</strong> – Support with funds, food, and essentials.</li>
+            <li style=color:#000000><strong>Volunteer Support</strong> – Lend your time and skills to orphanages.</li>
+            <li style="color:#000000"><strong>Orphanage Finder</strong> – Connect with nearby registered orphanages.</li>
+        </ul>
+        <p>Join us in making a real difference—because every child deserves love, care, and a brighter future. 💙</p>
+    </div>
+</div>
+</center>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Toggle dropdown menu
+    function toggleDropdown() {
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.classList.toggle('show');
+    }
+
+    // Handle dropdown options (navigate to different pages)
+    function handleOption(page) {
+        window.location.href = page;
+    }
+
+    // Close dropdown when clicking outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.dots')) {
+            const dropdown = document.querySelector('.dropdown');
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        }
+    }
+
+    // Reveal elements on scroll
+    function revealOnScroll() {
+        let elements = document.querySelectorAll('.animate');
+        elements.forEach((element) => {
+            let position = element.getBoundingClientRect().top;
+            let windowHeight = window.innerHeight;
+
+            if (position < windowHeight - 50) {
+                element.classList.add('show');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>

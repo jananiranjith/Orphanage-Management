@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #352F44;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #dbd8e3;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: black;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+        .checkbox-group label {
+            margin-right: 15px;
+            font-weight: normal;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #ff3b3b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Volunteer Registration</h1>
+        <form id="volunteerForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="availability">Availability:</label>
+            <select id="availability" name="availability">
+                <option value="Weekdays">Weekdays</option>
+                <option value="Weekends">Weekends</option>
+                <option value="Anytime">Anytime</option>
+            </select>
+
+            <label>Extra Activities (Check all that apply):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="activities" value="Teaching"> Teaching</label>
+                <label><input type="checkbox" name="activities" value="Sports"> Sports</label>
+                <label><input type="checkbox" name="activities" value="Music"> Music</label>
+                <label><input type="checkbox" name="activities" value="Art & Crafts"> Art & Crafts</label>
+                <label><input type="checkbox" name="activities" value="Fundraising"> Fundraising</label>
+            </div>
+
+            <label for="message">Why do you want to volunteer?</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit" class="btn">Submit Registration</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("volunteerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you for registering as a volunteer!");
+            document.getElementById("volunteerForm").reset();
+        });
+    </script>
+
+</body>
+</html>
+ 

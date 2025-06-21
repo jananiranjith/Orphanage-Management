@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands2Hands - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="homestyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+    body {
+        background-color: #352F44;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    }
+    </style>
+    
+    <div class="container text-center text-light">
+        <h1 class="mt-5" style="color: white">Dashboard</h1>
+        <p class="mt-5" style="color: white">Live Statistics</p>
+        <p style="color: white;">💜 Welcome to the Hands2Hands Dashboard
+
+            This dashboard provides real-time insights into the impact we are making together. Stay updated on the number of lives we’ve touched through donations, adoptions, and successful placements.</p>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <h3 class="count" data-count="500" style="color: slategray">0</h3>
+                        <p style="color: slategray">Children Supported</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <h3 class="count" data-count="120" style="color: slategray">0</h3>
+                        <p style="color: slategray">Adoptions Completed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <h3 class="count" data-count="300" style="color: slategray">0</h3>
+                        <p style="color: slategray">Donations Received</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn btn-warning btn-lg mt-4" style="background-color: slategray; color: #FFFFFF">Back to Home</a>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).data('count')
+                }, {
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
